@@ -1,0 +1,19 @@
+<mat-list class="sort">
+  <div mat-subheader>
+    <h3>Сортировка</h3>
+  </div>
+  <mat-list-item>
+    <mat-form-field appearance="fill" color="accent">
+      <mat-label>Сортировать по:</mat-label>
+      <mat-select [(ngModel)]="sortValue" (ngModelChange)="onChange()">
+        <mat-option *ngFor="let sort of sorts" [value]="sort.value">
+          {{sort.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-list-item>
+  <!-- <mat-divider></mat-divider> -->
+  <mat-list-item>
+    <button mat-raised-button color="primary" (click)="refresh()">Сброс</button>
+  </mat-list-item>
+</mat-list>

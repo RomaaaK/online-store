@@ -1,0 +1,61 @@
+
+<mat-list class="filter">
+  <div mat-subheader>
+    <h3>Filter</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Категории:</div>
+  <mat-list-item>
+    <div mat-line *ngFor="let cat of filtersData.category">
+      <mat-checkbox 
+        [(ngModel)]="cat.completed"
+        (ngModelChange)="onChange()"
+      >
+        {{ cat.name }}
+      </mat-checkbox>
+    </div>
+</mat-list-item>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Популярные:</div>
+  <mat-list-item>
+    <div mat-line>
+      <mat-checkbox 
+        [(ngModel)]="filtersData.popular"
+        (ngModelChange)="onChange()"
+      >
+        Только популярные
+      </mat-checkbox>
+    </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Цена:</div>
+  <mat-list-item>
+    <div mat-line>
+      <div class="custom-slider">
+        <ngx-slider 
+          [(value)]="filtersData.price[0]"
+          [(highValue)]="filtersData.price[1]" 
+          [options]="optionsPrice"
+          (userChangeEnd)="onChange()"
+        ></ngx-slider>
+      </div>
+    </div>
+   </mat-list-item>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Колличество:</div>
+  <mat-list-item>
+    <div mat-line>
+      <div class="custom-slider">
+        <ngx-slider 
+          [(value)]="filtersData.count[0]" 
+          [(highValue)]="filtersData.count[1]" 
+          [options]="optionsCount"
+          (userChangeEnd)="onChange()"  
+        ></ngx-slider>
+      </div>
+    </div>
+  </mat-list-item>
+  <mat-list-item>
+    <button mat-raised-button (click)="reset()">Сброс</button>
+  </mat-list-item>
+</mat-list>

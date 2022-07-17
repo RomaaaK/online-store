@@ -1,0 +1,14 @@
+.toolbar {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  &__spacer {
+    margin-left: auto;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}

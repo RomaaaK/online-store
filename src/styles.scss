@@ -1,0 +1,144 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-palette: (
+    50 : #eef3f3,
+    100 : #d4e0e2,
+    200 : #b7cccf,
+    300 : #9ab8bc,
+    400 : #85a8ad,
+    500 : #6f999f,
+    600 : #679197,
+    700 : #5c868d,
+    800 : #527c83,
+    900 : #406b72,
+    A100 : #c9f7ff,
+    A200 : #96efff,
+    A400 : #63e7ff,
+    A700 : #4ae3ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$my-primary: mat.define-palette(mat.$gray-palette, 800);
+$my-accent: mat.define-palette($my-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ )
+));
+
+$my-theme-dark: mat.define-dark-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ )
+));
+
+@include mat.all-component-themes($my-theme-dark);
+
+.light-theme {
+  @include mat.all-component-themes($my-theme);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-top: 70px;
+  background-color:  mat.get-color-from-palette($my-primary, 900);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__bottom {
+    margin-top: auto;
+  }
+}
+
+ ul {
+  list-style-type: none;
+  padding: 0;
+ }
+
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  &--full {
+    margin-bottom: 15px;
+    flex-direction: column;
+    justify-content: initial;
+
+    & > * {
+      border: 1px solid #636363;
+      display: grid;
+      order: 2;
+    }
+  }
+
+  &__search {
+    border: none;
+    order: 1;
+  }
+
+
+}
+
+.start-content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1900px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.warn-text {
+  font-size: 2rem;
+  color: mat.get-color-from-palette($my-primary, 50);
+  text-align: center;
+}
+
+.column {
+
+  &__2 {
+    display: flex;
+    gap: 15px;
+
+    @media (max-width: 680px) {
+      display: block;
+    }
+  }
+}

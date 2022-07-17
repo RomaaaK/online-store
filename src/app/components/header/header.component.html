@@ -1,0 +1,9 @@
+<header class="header">
+  <mat-toolbar color="primary" class="toolbar">
+    <h1>Online Store</h1>
+    <span class="toolbar__spacer"></span>
+    <button matBadge="{{ countInCart === 0 ? '' : countInCart + '' }}" matBadgeColor="accent" matBadgeSize="medium" mat-stroked-button >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

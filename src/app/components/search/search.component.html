@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill" color="accent">
+  <mat-label>Поиск</mat-label>
+  <input 
+    matInput 
+    autofocus
+    class="search__input" 
+    type="text" 
+    [(ngModel)]="value" 
+    placeholder="Введите название товара" 
+    (input)="onChange()"
+  >
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="onChange('clear')">
+    <mat-icon color="accent">close</mat-icon>
+  </button>
+</mat-form-field>
